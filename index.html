@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakpia Hana Puan – Kelezatan Premium dari Lampung</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /* (Pusat Kontrol Warna) */
+    :root {
+      --emas: #c59942;
+      --emas-gelap: #a0782c;
+      --hijau: #4a7c59;
+      --hijau-gelap: #3b6347;
+      --cokelat-tua: #4d342a;
+      --krem: #fffdf9;
+      --putih: #fff;
+      --teks-judul: var(--cokelat-tua);
+      --teks-paragraf: #555;
+      
+      /* 👇 PENAMBAHAN WARNA BARU AGAR LEBIH WARNA-WARNI 👇 */
+      --warna-shape-1: rgba(197, 153, 66, 0.2); /* Emas */
+      --warna-shape-2: rgba(74, 124, 89, 0.2);  /* Hijau */
+      --warna-shape-3: rgba(255, 105, 180, 0.15); /* Pink */
+      --warna-shape-4: rgba(100, 149, 237, 0.15); /* Biru */
+      --warna-shape-5: rgba(147, 112, 219, 0.15); /* Ungu */
+
+      --warna-1: #fdfbfb; 
+      --warna-2: rgba(74, 124, 89, 0.1); 
+      --warna-3: rgba(197, 153, 66, 0.1); 
+      --warna-4: rgba(228, 139, 52, 0.05); 
+      
+      --emas-bayangan: rgba(197, 153, 66, 0.2); 
+      --emas-border: rgba(197, 153, 66, 0.3); 
+      --emas-bayangan-hover: rgba(197, 153, 66, 0.35); 
+      --emas-border-hover: rgba(197, 153, 66, 0.6); 
+    }
+
+    /* (Reset & Font) */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--krem);
+      color: var(--teks-paragraf);
+    }
+    ::selection { background-color: var(--emas); color: var(--putih); }
+    
+    /* (Latar "Kreasi 2.0" - LEBIH HIDUP) */
+    @keyframes vibrantBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-80px) rotate(180deg); opacity: 0.4; }
+      100% { transform: translateY(0) rotate(360deg); opacity: 0.8; }
+    }
+    .kreatif-bg {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--warna-1) 0%, var(--warna-2) 25%, var(--warna-3) 75%, var(--warna-4) 100%);
+      background-size: 400% 400%;
+      animation: vibrantBg 20s ease infinite alternate;
+      background-attachment: fixed;
+    }
+    .floating-shapes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .floating-shapes span { position: absolute; display: block; border-radius: 50%; animation: float 20s infinite ease-in-out; opacity: 0; }
+    
+    /* 👇 UPDATE WARNA SHAPES JADI WARNA-WARNI 👇 */
+    .floating-shapes span:nth-child(1) { width: 120px; height: 120px; left: 10%; bottom: -150px; background: var(--warna-shape-1); animation-duration: 25s; animation-delay: -2s; }
+    .floating-shapes span:nth-child(2) { width: 80px; height: 80px; left: 20%; bottom: -100px; background: var(--warna-shape-3); /* Pink */ animation-duration: 18s; animation-delay: -5s; }
+    .floating-shapes span:nth-child(3) { width: 50px; height: 50px; left: 30%; bottom: -80px; background: var(--warna-shape-2); animation-duration: 30s; animation-delay: -7s; }
+    .floating-shapes span:nth-child(4) { width: 150px; height: 150px; left: 40%; bottom: -180px; background: var(--warna-shape-4); /* Biru */ animation-duration: 22s; animation-delay: -3s; }
+    .floating-shapes span:nth-child(5) { width: 70px; height: 70px; left: 55%; bottom: -90px; background: var(--warna-shape-1); animation-duration: 28s; animation-delay: -1s; }
+    .floating-shapes span:nth-child(6) { width: 100px; height: 100px; left: 70%; bottom: -120px; background: var(--warna-shape-5); /* Ungu */ animation-duration: 20s; animation-delay: -6s; }
+    .floating-shapes span:nth-child(7) { width: 60px; height: 60px; left: 85%; bottom: -70px; background: var(--warna-shape-2); animation-duration: 26s; animation-delay: -4s; }
+    .floating-shapes span:nth-child(8) { width: 130px; height: 130px; left: 5%; bottom: -160px; background: var(--warna-shape-3); /* Pink */ animation-duration: 23s; animation-delay: -8s; }
+    .floating-shapes span:nth-child(9) { width: 90px; height: 90px; left: 45%; bottom: -110px; background: var(--warna-shape-1); animation-duration: 19s; animation-delay: -1s; }
+    .floating-shapes span:nth-child(10) { width: 110px; height: 110px; left: 75%; bottom: -130px; background: var(--warna-shape-4); /* Biru */ animation-duration: 27s; animation-delay: -5s; }
+
+    /* (Navbar & Mobile Menu) */
+    nav {
+      display:flex; justify-content:space-between; align-items:center;
+      padding: 20px 60px; position:fixed; width:100%; top:0; z-index:990;
+      transition: padding 0.4s ease, box-shadow 0.4s ease;
+      background-color: var(--putih);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+    nav.navbar-scrolled { padding: 15px 60px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+    nav h1 { color: var(--emas); font-size:1.6rem; letter-spacing:1px; text-shadow: 0 0 10px var(--emas-bayangan); }
+    nav ul { display:flex; list-style:none; gap:25px; }
+    nav ul li a { text-decoration:none; color: var(--teks-judul); font-weight:500; transition:0.3s; position: relative; }
+    nav ul li a:hover { color: var(--emas); }
+    nav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--emas); transition: width 0.3s; }
+    nav ul li a:hover::after { width: 100%; }
+    .nav-toggle, .nav-close { font-size: 1.5rem; color: var(--teks-judul); cursor: pointer; display: none; }
+    .nav-close { position: absolute; top: 20px; right: 20px; font-size: 2rem; }
+
+    /* 🌸 HERO */
+    .hero {
+      height:100vh;
+      background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)), url('images/Background bakpia.jpeg') center/cover no-repeat;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; color: var(--putih); padding:0 20px; position: relative; 
+    }
+    .hero h2 { font-size: 3.5rem; margin-bottom:15px; font-weight: 700; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+    .hero p { font-size:1.3rem; max-width:650px; margin-bottom:30px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+    .hero button { padding:15px 35px; font-size:1.1rem; font-weight: 600; background-color: var(--emas); color: var(--putih); border:none; border-radius:30px; cursor:pointer; transition:0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .hero button:hover { background-color: var(--emas-gelap); transform: translateY(-3px); box-shadow: 0 6px 25px var(--emas-bayangan-hover); }
+
+    /* Animasi Scroll Down */
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+    .scroll-down-icon { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 2rem; color: var(--putih); opacity: 0.7; animation: bounce 2.5s infinite; z-index: 10; }
+    .scroll-down-icon a { color: var(--putih); text-decoration: none; }
+
+    /* 🌸 SECTION UMUM */
+    section { padding:100px 60px; text-align:center; overflow: hidden; position: relative; z-index: 1; }
+    section > * { position: relative; z-index: 2; }
+    section h2.section-title { font-size:2.5rem; color: var(--hijau); margin-bottom:15px; font-weight: 700; }
+    section p.section-subtitle { max-width: 700px; margin: 0 auto 50px auto; font-size: 1.1rem; color: var(--teks-paragraf); line-height: 1.7; }
+
+    /* 👇 UPGRADE: KARTU "LATAR PUTIH BERKREASI" (MUTIARA GRADIENT) 👇 */
+    .unggulan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+    .unggulan-item { 
+      padding: 30px; border-radius: 15px; transition: 0.3s ease; position: relative; overflow: hidden; 
+      /* Upgrade Latar: Bukan Putih Polos, tapi Gradient Halus */
+      background: linear-gradient(145deg, #ffffff, #fffdf5);
+      border: 1px solid var(--emas-border);
+      box-shadow: 0 10px 40px -10px var(--emas-bayangan);
+    }
+    .unggulan-item:hover { 
+      transform: translateY(-8px); 
+      border-color: var(--emas-border-hover);
+      box-shadow: 0 15px 45px -10px var(--emas-bayangan-hover);
+    }
+    .unggulan-item i { font-size: 2.5rem; color: var(--emas); margin-bottom: 20px; }
+    .unggulan-item h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--teks-judul); }
+    .unggulan-item p { font-size: 0.95rem; color: var(--teks-paragraf); line-height: 1.6; }
+
+    /* 🌸 PRODUK */
+    .products { display:grid; grid-template-columns:repeat(3, 1fr); gap:30px; }
+    .card { 
+      border-radius:20px; overflow:hidden; transition:0.3s ease; text-align: left; position: relative; 
+      /* Upgrade Latar: Mutiara Halus */
+      background: linear-gradient(145deg, #ffffff, #fffdf5);
+      border: 1px solid var(--emas-border);
+      box-shadow: 0 10px 40px -10px var(--emas-bayangan);
+    }
+    .card:hover { 
+      transform:translateY(-8px); 
+      border-color: var(--emas-border-hover);
+      box-shadow: 0 15px 45px -10px var(--emas-bayangan-hover);
+    }
+    .card img { width:100%; height:220px; object-fit:cover; transition: transform 0.3s ease; }
+    .card:hover img { transform: scale(1.05); }
+    .card-content { padding: 25px; }
+    .card-content h3 { margin:0 0 10px; color: var(--teks-judul); font-size: 1.4rem; }
+    .card-content p { padding:0; color: var(--teks-paragraf); font-size:0.95rem; line-height: 1.6; margin-bottom: 15px; }
+    
+    .card-price { text-align: left; margin-top: 15px; }
+    .card-price .old-price { font-size: 1rem; color: var(--teks-paragraf); text-decoration: line-through; margin-right: 10px; }
+    .card-price .new-price { font-size: 1.3rem; font-weight: 700; color: var(--hijau); }
+
+    @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 153, 66, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 153, 66, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 153, 66, 0); } }
+    .card .badge { position: absolute; top: 15px; right: 15px; background-color: var(--emas); color: var(--putih); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; z-index: 3; animation: pulse 2s infinite; }
+
+    /* 🌸 TESTIMONI */
+    #testimoni { padding-bottom: 120px; z-index: 2; }
+    .swiper-container { width: 100%; padding: 20px 0 50px 0; }
+    .swiper-slide { 
+      border-radius:15px; padding: 30px; max-width: 400px; text-align: left; 
+      background: linear-gradient(145deg, #ffffff, #fffdf5);
+      border: 1px solid var(--emas-border); box-shadow: 0 10px 40px -10px var(--emas-bayangan); transition: 0.3s ease; 
+    }
+    .swiper-slide:hover { border-color: var(--emas-border-hover); box-shadow: 0 15px 45px -10px var(--emas-bayangan-hover); }
+    .swiper-slide p { font-style:italic; margin-bottom:20px; font-size: 1.05rem; line-height: 1.7; }
+    .swiper-slide p::before { content: '“'; font-size: 2.5rem; color: var(--emas); font-weight: 600; margin-right: 5px; line-height: 0; }
+    .swiper-slide h4 { color: var(--hijau); text-align: right; font-size: 1.1rem; }
+    .swiper-pagination-bullet { background: var(--emas); opacity: 0.4; }
+    .swiper-pagination-bullet-active { background: var(--emas); opacity: 1; width: 12px; border-radius: 5px; }
+
+    /* 🌸 MAPS CONTAINER */
+    .map-container { margin-top: 50px; border-radius: 20px; overflow: hidden; border: 1px solid var(--emas-border); box-shadow: 0 10px 40px -10px var(--emas-bayangan); }
+    .map-container iframe { width: 100%; height: 450px; border: 0; }
+
+    /* (Kontak & Footer) */
+    .contact p.section-subtitle { margin-bottom: 30px; }
+    .contact-info { color: var(--teks-judul); font-weight: 500; margin-bottom: 30px; font-size: 1.1rem; }
+    .contact-info i { color: var(--hijau); margin-right: 8px; }
+    .contact a { display:inline-flex; align-items: center; gap: 10px; margin:10px; padding:14px 30px; font-size: 1.05rem; font-weight: 500; background-color: var(--emas); color: var(--putih); text-decoration:none; border-radius:30px; transition:0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .contact a:hover { background-color: var(--emas-gelap); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .contact a.btn-secondary { background-color: var(--hijau); }
+    .contact a.btn-secondary:hover { background-color: var(--hijau-gelap); }
+    footer { background-color: var(--cokelat-tua); color:#aaa; padding:50px 60px; text-align:center; font-size:0.9rem; position: relative; z-index: 2; }
+    .footer-socials { margin-bottom: 20px; }
+    .footer-socials a { color: var(--putih); text-decoration: none; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
+    .footer-socials a:hover { color: var(--emas); }
+    footer p { margin-bottom: 5px; }
+    footer .footer-email { color: #ccc; margin-bottom: 15px; font-size: 1rem; }
+    #backToTop { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; background-color: var(--emas); color: var(--putih); text-align: center; line-height: 45px; font-size: 1.2rem; border-radius: 50%; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.3s; z-index: 998; }
+    #backToTop.show { opacity: 1; visibility: visible; }
+    #backToTop:hover { background-color: var(--emas-gelap); transform: scale(1.1); }
+
+    @media(max-width: 1024px) { .products, .unggulan-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width:768px){
+      nav {padding:15px 25px;} nav.navbar-scrolled {padding: 15px 25px;}
+      .nav-toggle { display: block; }
+      nav ul { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: var(--putih); transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); z-index: 1000; }
+      nav ul li a { font-size: 1.5rem; }
+      nav ul.nav-active { right: 0; }
+      .nav-close { display: block; z-index: 1001; }
+      section {padding:60px 25px;} .hero h2 {font-size:2.5rem;} .hero p {font-size: 1.1rem;} section h2.section-title { font-size: 2rem; }
+      .products, .unggulan-grid { grid-template-columns: 1fr; }
+      .swiper-slide { max-width: 90%; }
+      .map-container iframe { height: 350px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar"> 
+    <h1>Bakpia Hana Puan</h1>
+    <ul id="nav-menu">
+      <i class="fa-solid fa-times nav-close" id="nav-close"></i>
+      <li><a href="#home" class="nav-link">Beranda</a></li>
+      <li><a href="#keunggulan" class="nav-link">Keunggulan</a></li>
+      <li><a href="#produk" class="nav-link">Produk</a></li>
+      <li><a href="#testimoni" class="nav-link">Testimoni</a></li>
+      <li><a href="#lokasi" class="nav-link">Lokasi</a></li>
+      <li><a href="#kontak" class="nav-link">Kontak</a></li>
+    </ul>
+    <i class="fa-solid fa-bars nav-toggle" id="nav-toggle"></i>
+  </nav>
+
+  <section class="hero" id="home">
+    <div data-aos="fade-in" data-aos-duration="1500">
+      <h2>Kelezatan Premium Khas Lampung</h2>
+      <p>Bakpia Hana Puan, oleh-oleh kebanggaan yang dibuat dengan cinta dan resep turun-temurun. Rasa premium yang tak terlupakan!</p>
+      <button onclick="window.location.href='#produk'">Lihat Produk Kami</button>
+    </div>
+    <div class="scroll-down-icon">
+      <a href="#keunggulan"> <i class="fa-solid fa-chevron-down"></i> </a>
+    </div>
+  </section>
+
+  <section id="keunggulan" class="about kreatif-bg">
+    <div class="floating-shapes"> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> </div>
+    <h2 class="section-title" data-aos="fade-up">Kenapa Memilih Bakpia Hana Puan?</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Lahir dari semangat menghadirkan cita rasa khas Nusantara, kami memadukan bahan pilihan dan proses higienis untuk rasa yang tak tertandingi.</p>
+    <div class="unggulan-grid">
+      <div class="unggulan-item" data-aos="fade-up" data-aos-delay="200"> <i class="fa-solid fa-medal"></i> <h3>Bahan Premium</h3> <p>Hanya menggunakan bahan baku pilihan terbaik, tanpa pengawet buatan, untuk menjamin cita rasa asli.</p> </div>
+      <div class="unggulan-item" data-aos="fade-up" data-aos-delay="300"> <i class="fa-solid fa-kitchen-set"></i> <h3>Resep Turun-Temurun</h3> <p>Resep rahasia keluarga yang terjaga, menghasilkan tekstur renyah di luar namun lembut dan lumer di dalam.</p> </div>
+      <div class="unggulan-item" data-aos="fade-up" data-aos-delay="400"> <i class="fa-solid fa-certificate"></i> <h3>Higienis & Halal</h3> <p>Proses produksi yang bersih, modern, dan dijamin Halal, memberikan ketenangan dalam setiap gigitan.</p> </div>
+      <div class="unggulan-item" data-aos="fade-up" data-aos-delay="200"> <i class="fa-solid fa-clock"></i> <h3>Selalu Fresh</h3> <p>Diproduksi setiap hari (Made by Order) untuk menjamin bakpia yang Anda terima selalu baru dan dalam kondisi terbaik.</p> </div>
+      <div class="unggulan-item" data-aos="fade-up" data-aos-delay="300"> <i class="fa-solid fa-gift"></i> <h3>Kemasan Premium</h3> <p>Dikemas dengan elegan dan aman, menjadikan Bakpia Hana Puan oleh-oleh sempurna untuk orang terkasih.</p> </div>
+      <div class="unggulan-item" data-aos="fade-up" data-aos-delay="400"> <i class="fa-solid fa-star"></i> <h3>Varian Rasa Unik</h3> <p>Selain rasa klasik, kami hadirkan varian kopi, ubi ungu, dan pisang yang memanjakan lidah Anda.</p> </div>
+    </div>
+  </section>
+
+  <section id="produk" class="kreatif-bg">
+    <div class="floating-shapes"> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> </div>
+    <h2 class="section-title" data-aos="fade-up">Produk Unggulan Kami</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Setiap rasa dibuat untuk menciptakan momen spesial. Temukan favorit Anda.</p>
+    <div class="products">
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <span class="badge">Best Seller</span>
+        <img src="images/kacang ijo bakpia.jpeg" alt="Bakpia Kacang Ijo">
+        <div class="card-content">
+          <h3>Bakpia Kacang Ijo</h3>
+          <p>Rasa original legendaris! Manis legit kacang hijau pilihan yang tak pernah gagal memanjakan lidah.</p>
+          <div class="card-price">
+            <span class="old-price">Rp 27.000</span> <span class="new-price">Rp 25.000 ✨</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <span class="badge">Favorite</span>
+        <img src="images/keju bakpia.jpeg" alt="Bakpia Keju">
+        <div class="card-content">
+          <h3>Bakpia Keju</h3>
+          <p>Gurih, lembut, dan creamy! Nikmati perpaduan keju asli premium yang lumer di setiap gigitan.</p>
+          <div class="card-price">
+            <span class="old-price">Rp 27.000</span> <span class="new-price">Rp 25.000 ✨</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <span class="badge">Juicy</span>
+        <img src="images/coklat bakpia.jpeg" alt="Bakpia Cokelat">
+        <div class="card-content">
+          <h3>Bakpia Cokelat</h3>
+          <p>Lelehan cokelat premium berkualitas tinggi di dalam balutan adonan lembut. Favorit semua usia!</p>
+          <div class="card-price">
+            <span class="old-price">Rp 27.000</span> <span class="new-price">Rp 25.000 ✨</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="200"> 
+        <span class="badge">Best Seller</span>
+        <img src="images/ubi ungu bakpia.jpeg" alt="Bakpia Ubi Ungu">
+        <div class="card-content">
+          <h3>Bakpia Ubi Ungu</h3>
+          <p>Manis alami ubi ungu asli dengan warna yang cantik. Pilihan unik dan kaya rasa.</p>
+          <div class="card-price">
+            <span class="old-price">Rp 27.000</span> <span class="new-price">Rp 25.000 ✨</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <span class="badge">Aroma Khas</span>
+        <img src="images/kopi bakpia.jpeg" alt="Bakpia Kopi">
+        <div class="card-content">
+          <h3>Bakpia Kopi</h3>
+          <p>Aroma khas kopi Lampung berpadu dengan manis bakpia. Sensasi baru untuk para pecinta kopi.</p>
+          <div class="card-price">
+            <span class="old-price">Rp 27.000</span> <span class="new-price">Rp 25.000 ✨</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <span class="badge">Lumer</span>
+        <img src="images/pisang bakpia.png" alt="Bakpia Pisang">
+        <div class="card-content">
+          <h3>Bakpia Pisang</h3>
+          <p>Rasa manis legit khas pisang pilihan yang diolah sempurna. Memberi kejutan rasa tropis.</p>
+          <div class="card-price">
+            <span class="old-price">Rp 27.000</span> <span class="new-price">Rp 25.000 ✨</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimoni" class="kreatif-bg">
+    <div class="floating-shapes"> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> </div>
+    <h2 class="section-title" data-aos="fade-up">Apa Kata Pelanggan Kami</h2>
+    <div class="swiper-container" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <p>“Rasanya beda banget dari bakpia lain, kulitnya renyah dan isiannya berlimpah. Juaranya bakpia Lampung!”</p>
+          <h4>— Rina, Bandar Lampung</h4>
+        </div>
+        <div class="swiper-slide">
+          <p>“Sudah coba semua rasa, tapi yang cokelat favoritku! Selalu pesan via DM tiap minggu. Lumer banget!”</p>
+          <h4>— Dimas, Metro</h4>
+        </div>
+        <div class="swiper-slide">
+          <p>“Packaging-nya elegan dan cocok buat oleh-oleh. Keluarga di Jakarta juga suka banget! Profesional.”</p>
+          <h4>— Ayu, Pringsewu</h4>
+        </div>
+        <div class="swiper-slide">
+          <p>“Baru kali ini nyoba bakpia rasa kopi, dan ENAK BANGET! Nagih, fix langganan.”</p>
+          <h4>— Budi, Jakarta</h4>
+        </div>
+         <div class="swiper-slide">
+          <p>“Ubi ungunya favorit! Manisnya pas, warnanya cantik. Anak-anak saya suka sekali.”</p>
+          <h4>— Citra, Metro</h4>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section id="lokasi" class="kreatif-bg">
+    <div class="floating-shapes"> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> </div>
+    <h2 class="section-title" data-aos="fade-up">Temukan Kami di Sini</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Kunjungi outlet kami untuk mendapatkan bakpia fresh langsung dari oven!</p>
+    <div class="map-container" data-aos="fade-up" data-aos-delay="200">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3971.8392011627225!2d105.2640573!3d-5.441373!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dbd481324e6d%3A0x706302519b7f9c58!2sPia%20siger%20lampung%20x%20Pia%20Hana%20Puan!5e0!3m2!1sen!2sid!4v1763519282639!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <section id="kontak" class="contact kreatif-bg">
+    <div class="floating-shapes"> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> </div>
+    <h2 class="section-title" data-aos="fade-up">Hubungi Kami</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Ingin pesan atau jadi reseller Bakpia Hana Puan?</p>
+    <div class="contact-info" data-aos="fade-up" data-aos-delay="150"> <i class="fa-solid fa-envelope"></i> bakpiahanapuan@gmail.com </div>
+    <div data-aos="fade-up" data-aos-delay="200">
+      <a href="https://wa.me/6281234567890" target="_blank"> <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp </a>
+      <a href="https://www.instagram.com/piahanapuan.berdampak?igsh=MXVjbmZ5MWljb2F1Mw==" target="_blank" class="btn-secondary"> <i class="fa-brands fa-instagram"></i> @piahanapuan.berdampak </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-socials">
+      <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/piahanapuan.berdampak01" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p class="footer-email">bakpiahanapuan@gmail.com</p>
+    <p>© 2025 Bakpia Hana Puan. Semua hak dilindungi.</p>
+    <p>Website by Edwin Lase</p>
+  </footer>
+  
+  <a href="#home" id="backToTop" class="show"> <i class="fa-solid fa-arrow-up"></i> </a>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 50 });
+
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto', spaceBetween: 20, centeredSlides: true, loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      breakpoints: {
+        768: { slidesPerView: 2, centeredSlides: false },
+        1024: { slidesPerView: 3, centeredSlides: false }
+      }
+    });
+
+    window.onscroll = function() {
+      var nav = document.getElementById('navbar');
+      var backToTopBtn = document.getElementById('backToTop');
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        nav.classList.add('navbar-scrolled');
+        backToTopBtn.classList.add('show');
+      } else {
+        nav.classList.remove('navbar-scrolled');
+        backToTopBtn.classList.remove('show');
+      }
+    };
+
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    const navClose = document.getElementById('nav-close');
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (navToggle) { navToggle.addEventListener('click', () => { navMenu.classList.add('nav-active'); }); }
+    if (navClose) { navClose.addEventListener('click', () => { navMenu.classList.remove('nav-active'); }); }
+    navLinks.forEach(link => { link.addEventListener('click', () => { navMenu.classList.remove('nav-active'); }); });
+  </script>
+
+</body>
+</html>
